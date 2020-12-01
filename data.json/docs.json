@@ -1,0 +1,12 @@
+[
+  {"id":1,"item":"apple pie","genre":["desert","fruit"]},
+  {"id":2,"item":"steak","genre":["main","meat"]},
+  {"id":3,"item":"mushroom soup","genre":["soup","vegitable","appitizer"]},
+  {"id":4,"item":"french bread","genre":["appitizer"]},
+  {"id":5,"item":"chicken nanban","genre":["main","lunch","meat"]},
+  {"id":6,"item":"purin","genre":["desert"]},
+  {"id":7,"item":"bacon pasta","genre":["pasta","lunch","pork"]},
+  {"id":8,"item":"hawaiian pizza","genre":["pizza","fruit","meat","pork"]},
+  {"id":9,"item":"tomato soup","genre":["soup","vegitable","appitizer"]},
+  {"id":10,"item":"milk tea","genre":["drink","non-alcohol"]}
+]

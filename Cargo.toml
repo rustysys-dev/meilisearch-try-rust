@@ -1,0 +1,24 @@
+[package]
+name = "meili-rust-test"
+version = "0.1.0"
+authors = ["Scott Mattan <scott.mattan@uhuru.jp>"]
+edition = "2018"
+
+[[bin]]
+name = "index"
+path = "src/index/main.rs"
+
+[[bin]]
+name = "add"
+path = "src/add/main.rs"
+
+[[bin]]
+name = "get"
+path = "src/get/main.rs"
+
+[dependencies]
+meilisearch-sdk = "0.4"
+tokio = { version = "0.2", features = ["macros"] }
+serde = { version="1.0",   features = ["derive"] }
+serde_json = "1.0"
+dotenv = "0.15.0"
