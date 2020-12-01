@@ -16,3 +16,6 @@ server-down:
 
 index:
 	cargo run --bin index
+
+add:
+	cargo run --bin add
