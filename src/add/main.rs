@@ -2,7 +2,7 @@ extern crate dotenv;
 extern crate meilisearch_sdk;
 extern crate serde;
 use dotenv::var;
-use meilisearch_sdk::{client::*, document::*};
+use meilisearch_sdk::{client::*, document::*, progress::*};
 use serde::{Deserialize, Serialize};
 use std::{fs::File, io::prelude::*};
 
@@ -31,7 +31,7 @@ async fn main() {
         .await
         .expect("Failed to init index!");
 
-    let mut file = File::open("data.json/docs.json").expect("Failed to open file!");
+    let mut file = File::open("data.json/docs.json").expect("failed to open file!");
     let mut content = String::new();
     file.read_to_string(&mut content)
         .expect("Could not read from file");
@@ -42,7 +42,17 @@ async fn main() {
         .await
         .expect("failed to add documents!");
 
-    // SLEEP FOR A BIT THEN GET RESULT
+    let status: ProcessedStatus;
+    loop {
+        let result_status = result.get_status().await.expect("failed to get status.");
+        match result_status {
+            Status::Processed(s) => {
+                status = s;
+                break;
+            }
+            Status::Enqueued(_) => (),
+        }
+    }
 
-    println!("{:#?}", food);
+    println!("{:#?}", status);
 }
